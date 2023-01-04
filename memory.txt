@@ -1,0 +1,6 @@
+You can modify the memory pool, 1,3,5,etc will be Q:, and 2,4,6,etc will be A:
+What will happen if I do that
+If you add lines(in number of 2*n), this memory pool will expand
+That sounds cool
+But the negative effect is obvisous since the language models are deterministic models
+Fine
