@@ -1,11 +1,17 @@
 # aiWechaty<br /> 
+This one is built and tested on WhatsApp, some functions may be invalid and if you change it.
 Wechaty that is combined with language models and ChatGPT (Sorry for my miserable buggy and inconvenient code)<br /> 
 You can have a chatbot with language models!<br /> 
 <br /> 
 <br /> 
-Send messages to the bot and it shall reply you.
-To use ChatGPT, send "::YOUR_TEXT,." to the bot.
-
+Send messages to the bot and it shall reply you.<br /> 
+To use ChatGPT, send "::YOUR_TEXT,." to the bot.<br /> 
+<br /> 
+<br /> 
+Features:<br /> 
+Talk to you<br />
+"Broken sentence"-combining <br /> 
+<br /> 
 <br /> 
 Used: <br /> 
 Wechaty https://wechaty.js.org/<br /> 
