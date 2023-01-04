@@ -9,9 +9,9 @@ To use ChatGPT, send "::YOUR_TEXT,." to the bot.<br />
 <br /> 
 <br /> 
 Features:<br /> 
-Talk to you<br />
-"Broken sentence"-combining <br /> 
-<br /> 
+1. Talk to you<br />
+2. "Broken sentence"-combining <br /> 
+3. It is cool.<br /> 
 <br /> 
 Used: <br /> 
 Wechaty https://wechaty.js.org/<br /> 
