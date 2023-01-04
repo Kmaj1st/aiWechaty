@@ -2,6 +2,11 @@
 Wechaty that is combined with language models and ChatGPT (Sorry for my miserable buggy and inconvenient code)<br /> 
 You can have a chatbot with language models!<br /> 
 <br /> 
+<br /> 
+Send messages to the bot and it shall reply you.
+To use ChatGPT, send "::YOUR_TEXT,." to the bot.
+
+<br /> 
 Used: <br /> 
 Wechaty https://wechaty.js.org/<br /> 
 revChatGPT https://github.com/acheong08/ChatGPT<br /> 
