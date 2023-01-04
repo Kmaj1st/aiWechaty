@@ -25,20 +25,20 @@ pip install uvicorn #If you use ChatGPT<br />
 3. config(not necessary)<br /> 
 config.json<br /> 
 Set "session_token" cookie on ChatGPT website in config.json <br /> 
-	"session_token": "<YOUR_TOKEN>"<br /> 
+	"session_token": "YOUR_TOKEN"<br /> 
 And you can also set your language. I don't really know the effect of it.<br /> 
 <br /> 
 config.py<br /> 
 Other language models:<br /> 
     Bloom: https://huggingface.co/bigscience/bloom<br /> 
-    blmKey = {"Authorization": "<YOUR_TOKEN>"}<br /> 
+    blmKey = {"Authorization": "YOUR_TOKEN"}<br /> 
     <br /> 
     OpenAI: https://beta.openai.com/account/api-keys<br /> 
-    openai_api_key = "<YOUR_API_KEY>"<br /> 
+    openai_api_key = "YOUR_API_KEY"<br /> 
     <br /> 
     源(Yuan): https://air.inspur.com/example<br /> 
-    yuan_account = "<YOUR_ACCOUNT>"<br /> 
-    yuan_phone = "<YOUR_PHONE>"<br /> 
+    yuan_account = "YOUR_ACCOUNT"<br /> 
+    yuan_phone = "YOUR_PHONE"<br /> 
     <br /> 
 4. run<br /> 
 npm start #run the bot and scan to login<br /> 
