@@ -1,5 +1,5 @@
 # aiWechaty<br /> 
-!Bad code warning! The code is not neat and contains several bugs.<br /> 
+!Bad code warning! The code is not neat and contains several(a lot of) bugs.<br /> 
 This one is only built and tested with wechaty-puppet-whatsapp, some functions may be invalid and if you change the puppet.<br /> 
 Wechaty that is combined with language models and ChatGPT (Sorry for my miserable buggy and inconvenient code, someone help me fix my code)<br /> 
 You can have a chatbot with language models!<br /> 
