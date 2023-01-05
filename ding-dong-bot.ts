@@ -54,6 +54,25 @@ let preMode = mode;
 let modeCGPT = false;
 let instant = false;
 let CGPTOnUse= false;
+
+async function resetVar(){
+  text="";
+  first = true;
+  instant = false;
+  timer = 3;
+}
+
+async function resetCGPTVar(){
+  modeCGPT = false;
+  CGPTOnUse= false;
+}
+
+
+async function resetAllVar(){
+  resetVar();
+  resetCGPTVar();
+}
+
 async function onMessage (msg: Message) {
   log.info('StarterBot', msg.toString())
   if (msg.self()==true) {return;}
@@ -109,8 +128,9 @@ async function onMessage (msg: Message) {
     return;
   }
   
-  if(msg.text().toLowerCase().includes("#reset"){
+  if(msg.text().toLowerCase().includes("#reset")){
     resetAllVar()
+    return;
   }
       
   if(msg.text().startsWith("#")) return;
@@ -188,25 +208,6 @@ async function onMessage (msg: Message) {
   }
   
 }
-
-async function resetVar(){
-  text="";
-  first = true;
-  instant = false;
-  timer = 3;
-}
-
-async function resetCGPTVar(){
-  modeCGPT = false;
-  CGPTOnUse= false;
-}
-
-
-async function resetAllVar(){
-  resetVar();
-  resetCGPTVar();
-}
-
 
 async function sendMessage(msg){
   log.info("gotta run with " + text);
