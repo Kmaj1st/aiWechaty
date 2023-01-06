@@ -45,7 +45,6 @@ function onLogout (user: Contact) {
   log.info('StarterBot', '%s logout', user)
 }
 
-
 let text="";
 let first = true;
 let timer = 3;
@@ -66,7 +65,6 @@ async function resetCGPTVar(){
   modeCGPT = false;
   CGPTOnUse= false;
 }
-
 
 async function resetAllVar(){
   resetVar();
@@ -134,9 +132,10 @@ async function onMessage (msg: Message) {
   }
       
   if(msg.text().startsWith("#")) return;
-    
+  
   log.info("Msg type= "+msg.type());       
-    
+  if(mod==-2) return;    
+  
   if (msg.type() == "2"){
     text = "我发一段语音，[VOICET2]，听得到吗";
     sendMessage(msg);
