@@ -48,7 +48,7 @@ function onLogout (user: Contact) {
 let text="";
 let first = true;
 let timer = 3;
-let mode =3;
+let mode = -2;
 let preMode = mode;
 let modeCGPT = false;
 let instant = false;
@@ -131,10 +131,9 @@ async function onMessage (msg: Message) {
     return;
   }
       
-  if(msg.text().startsWith("#")) return;
+  if(msg.text().startsWith("#")||mode==-2) return;
   
   log.info("Msg type= "+msg.type());       
-  if(mod==-2) return;    
   
   if (msg.type() == "2"){
     text = "我发一段语音，[VOICET2]，听得到吗";
