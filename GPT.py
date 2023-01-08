@@ -4,19 +4,58 @@ import os
 from os.path import exists
 from os import getenv
 
-
 from revChatGPT.ChatGPT import Chatbot
-
 from fastapi import FastAPI
-from getRsp import getResponse
+
 cvrFile = 'cvr.txt'
 app = FastAPI()
 
-def get_input(prompt):
-    print(prompt, end="")
-    user_input = input()
-    return(user_input)
-
+def getResponse(bot, prompt):
+        if (prompt=="favicon.ico") : return        
+        if prompt.startswith("!"):
+            if prompt == "!help":
+                return(
+"!help - Show this message %0a!reset - Forget the current conversation %0a"+
+"!refresh - Refresh the session authentication %0a"+
+"!config - Show the current configuration %0a"+
+"!rollback x - Rollback the conversation (x being the number of messages to rollback) %0a"+
+"!exit - Exit the program"
+                ,
+                )
+                
+            elif prompt == "!reset":
+                bot.reset_chat()
+                return("Chat session reset.")
+                
+            elif prompt == "!refresh":
+                bot.refresh_session()
+                return("Session refreshed.\n")
+                
+            elif prompt == "!config":
+                return(json.dumps(bot.config, indent=4))
+                
+            elif prompt.startswith("!rollback"):
+                # Default to 1 rollback if no number is specified
+                try:
+                    rollback = int(prompt.split(" ")[1])
+                except IndexError:
+                    rollback = 1
+                bot.rollback_conversation(rollback)
+                return(f"Rolled back {rollback} messages.")
+                
+            elif prompt.startswith("!setconversation"):
+                try:
+                    bot.config["conversation"] = prompt.split(" ")[1]
+                    return("Conversation has been changed")
+                except IndexError:
+                    return("Please include conversation UUID in command")
+        else:
+            try:
+                message = bot.ask(
+                prompt.replace("%SLASH%", "/"), conversation_id=bot.config.get("conversation"))
+                return(message)
+            except Exception as exc:
+                return("Something went wrong! exc:"+ str(exc))
 
 def configure():
     config_files = ["config.json"]
@@ -52,30 +91,13 @@ def readCvr(bot):
     else:
         print("No conversation save file found. Will be created after your first conversation.")
 
-   
-
-
-def chatGPT_main():
-    print("Logging in...")
-    while True:
-        prompt = get_input("\nYou:")
-        if prompt == "!exit" : return('break')
-        print(getResponse(bot, prompt)["message"])
-
-
 bot = Chatbot(configure())
 readCvr(bot)
 
 @app.get("/{prompt}")
 def read_prompt(prompt: str):
-    print(prompt)
+    print(prompt) 
+    prompt = prompt.replace("/", "%SLASH%")
     response = getResponse(bot, prompt)
-    print(response)
     saveCvr(response)
     return re.sub(r'\r?\n', '', response["message"])
-def main():
-    chatGPT_main()
-
-
-if __name__ == "__main__":
-    main()
