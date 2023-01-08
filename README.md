@@ -7,6 +7,7 @@ You can have a chatbot with language models!<br />
 <br /> 
 Send messages to the bot and it shall reply you.<br /> 
 To use ChatGPT, send "::YOUR_TEXT,." to the bot.<br /> 
+Use #mode to check mode, #rand for random model, or #open / #bloom / #yuan to select a model.<br /> 
 <br /> 
 <br /> 
 Features:<br /> 
